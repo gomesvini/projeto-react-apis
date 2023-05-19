@@ -1,101 +1,41 @@
-import { useNavigate } from "react-router-dom";
-import { Button, ButtonCard, Card, Div, DivButton, DivP, Header, P } from "./pokemonListStyle";
-import { goToDetails, goToPokedex } from "../../routes/coordinator";
+import {Div, DivTotal, H1, Container} from "./pokemonListStyle";
+import PokemonCard from "../../Components/PokemonCard/pokemonCard";
+import Header from "../../Components/Header/header";
 
-export default function PokemonList (){
+export default function PokemonList ({pokelist, pokedex, addToPokedex, setDetail }){
 
-    const navigate = useNavigate()
-
+  const filteredPokelist = () => 
+    pokelist.filter(
+        (pokemonInList) => 
+        !pokedex.find(
+            (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
+   
+            
     return(
-        <>
-            <Header>
-                <Button onClick={() => goToPokedex(navigate)}>Ver minha POKEDEX</Button>
-                <P>LISTA DE POKÉMONS (VINDO DA API)</P>
-            </Header>
+        <Container>
+            <Header/>
 
-            <Div>
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard onClick={()=> goToDetails(navigate)}>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
+            <DivTotal> 
+                <>
+                    <H1>Todos Pokémons</H1>
+                </>
+                <Div>
+                    {filteredPokelist().map((pokemon, index) => (
+                        <PokemonCard
+                        key={index}
+                        pokemonName={pokemon.name}
+                        pokemonUrl={pokemon.url}
+                        addToPokedex={addToPokedex}
+                        setDetail={setDetail}/>
+                    ))}         
 
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
-            </Div>
-
-        </>
+                
+                </Div>
+                               
+            </DivTotal>
+        </Container>
 
         
     )

@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-
-export const Header = styled.div`
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    height: 12vh;
-    align-items: center;
-`
 export const P = styled.p`
     margin-right: 35rem;
 `
@@ -46,4 +38,11 @@ export const ButtonCard = styled.button`
 export const Div = styled.div`
     display: flex;
     flex-wrap: wrap;
+    /* background-color: #5e5e5e; */
+    justify-content: space-around;
 `
+export const Container = styled.div`
+    background-color: #5e5e5e;  
+    height: max-content;  
+`
+

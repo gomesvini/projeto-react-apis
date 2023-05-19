@@ -1,31 +1,27 @@
-import { useNavigate } from "react-router-dom";
-import { Div, Header, Button, P, DivP, DivButton, Card, ButtonCard} from "../PokedexPage/pokedexStyle";
-import { goToDetails, goToHome } from "../../routes/coordinator";
+import { Div, Container} from "../PokedexPage/pokedexStyle";
+import PokemonCard from "../../Components/PokemonCard/pokemonCard";
+import Header from '../../Components/Header/header'
+import { BASE_URL } from "../../constants/BASE_URL";
 
-
-export default function PokedexPage (){
-    
-    const navigate = useNavigate()
+export default function PokedexPage ({pokedex, removeFromPokedex, detail, setDetail}){
 
     return(
-        <>
-            <Header>
-                <Button onClick={()=> goToHome(navigate)}>Voltar para lista de pokemons</Button>
-                <P>POKEDEX</P>
-            </Header>
+        <Container>
+            <Header/>
 
             <Div>
-                <Card>
-                    <DivP>
-                        <p>POKE CARD</p>
-                    </DivP>
-                    <DivButton>
-                        <ButtonCard>adicionar</ButtonCard>
-                        <ButtonCard onClick={()=> goToDetails(navigate)}>ver detal.</ButtonCard>
-                    </DivButton>
-                </Card>
+                {pokedex.map((pokemon, index) => (
+                    <PokemonCard
+                        key={index}
+                        pokemonUrl={`${BASE_URL}/${pokemon.name}`}
+                        pokemonName={pokemon.name}
+                        removeFromPokedex={removeFromPokedex}
+                        detail={detail}
+                        setDetail={setDetail}/>
+                ))}             
+                
             </Div>
-        </>
+        </Container>
     )
     
 }
