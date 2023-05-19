@@ -123,11 +123,11 @@ export const ProgressBar = styled.div`
     --progress: ${(props) => {return props.value}};
     width: 10vw;
     height: 2vh;
-    background-color: transparent;
+    background-color: #DCDDDD;
     display: flex;
     border-radius: 40px;
     margin-top: 0.6rem;
-    margin-left: 1rem;
+    margin-left: 0.8rem;
     ::before{
         content:"";
         width: calc(var(--progress)*1%);
