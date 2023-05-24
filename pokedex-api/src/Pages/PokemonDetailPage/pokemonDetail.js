@@ -24,6 +24,8 @@ import water from "../../Assets/water.svg"
 
 export default function PokemonDetail ({detail, pokedex, addToPokedex, removeFromPokedex}){
 
+    // const context = useContext();
+    // const {typesCard, detail, pokedex, addToPokedex, removeFromPokedex} = context
 
         const typesCard = (types_name) => {
             switch (types_name) {

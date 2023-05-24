@@ -2,7 +2,11 @@ import {Div, DivTotal, H1, Container} from "./pokemonListStyle";
 import PokemonCard from "../../Components/PokemonCard/pokemonCard";
 import Header from "../../Components/Header/header";
 
-export default function PokemonList ({pokelist, pokedex, addToPokedex, setDetail }){
+
+export default function PokemonList ({pokedex, pokelist, addToPokedex, setDetail }){
+
+    
+
 
   const filteredPokelist = () => 
     pokelist.filter(

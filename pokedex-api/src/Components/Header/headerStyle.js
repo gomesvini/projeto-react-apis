@@ -17,7 +17,7 @@ export const SecondImg = styled.img`
 `
 
 export const ThirdImg = styled.img`
-    margin-left: 7.3rem;
+    margin-left: 9rem;
 `
 
 export const SecondDiv = styled.div`
@@ -44,6 +44,7 @@ export const Button = styled.button`
 export const ButtonCatch = styled.button`
     height: 8vh;
     width: 14vw;
+    margin-left: 2vw;
     margin-right: 2rem;
     border-radius: 8px;
     background-color: #33a4f5;
@@ -58,7 +59,7 @@ export const ButtonRemove = styled.button`
     height: 8vh;
     width: 14vw;
     margin-left: 2vw;
-    margin-right: 1rem;
+    margin-right: 2rem;
     border-radius: 8px;
     background-color:  #ff6262;
     color: white;
